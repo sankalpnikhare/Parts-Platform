@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Add Product</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container py-4">
+  <h1>Add Product</h1>
+
+  <!-- ✅ MESSAGE BOX (FIXED POSITION) -->
+  <div id="msg"></div>
+
+  <form id="addForm" class="mt-3">
+
+    <div class="mb-3">
+      <label class="form-label">Shop Name</label>
+      <input type="text" name="shopName" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Shop Address</label>
+      <input type="text" name="shopAddress" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input type="text" name="title" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea name="description" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Image URL</label>
+      <input type="url" name="imageUrl" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Price</label>
+      <input type="number" name="price" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Category</label>
+      <select name="category" class="form-control" required>
+        <option value="">Select Category</option>
+        <option value="electrical">Electrical</option>
+        <option value="mechanical">Mechanical</option>
+      </select>
+    </div>
+
+    <div class="mb-3 form-check">
+      <input type="checkbox" name="rare" class="form-check-input" id="rareCheck">
+      <label class="form-check-label" for="rareCheck">Rare part</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Product</button>
+    <a href="products.html" class="btn btn-secondary">Back</a>
+
+  </form>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

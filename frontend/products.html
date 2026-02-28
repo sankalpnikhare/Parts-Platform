@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Products - Local Parts</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-image: url('Image.png'); 
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+    }
+
+    .content-wrapper {
+      background-color: rgba(0, 0, 0, 0.45);
+      min-height: 100vh;
+      padding-bottom: 2rem;
+    }
+
+    .container {
+      color: #fff;
+    }
+
+    .product-card {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      border: 2px solid #000;
+      height: 100%;
+      color: #212529;
+    }
+
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-color: #000;
+    }
+  </style>
+</head>
+
+<body>
+<div class="content-wrapper">
+
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">LocalParts</a>
+      <a class="btn btn-primary" href="add.html">Add Product</a>
+    </div>
+  </nav>
+
+  <main class="container my-4">
+
+    <h1 class="mb-3">Connecting you the Parts that Matter.</h1>
+
+    <input id="search" class="form-control mb-3" placeholder="Search products...">
+
+    <div class="mb-3">
+      <button class="btn btn-sm btn-light me-1 active" data-cat="all">All</button>
+      <button class="btn btn-sm btn-light me-1" data-cat="rare">Rare</button>
+      <button class="btn btn-sm btn-light me-1" data-cat="electrical">Electrical</button>
+      <button class="btn btn-sm btn-light me-1" data-cat="mechanical">Mechanical</button>
+    </div>
+
+    
+    <div id="list" class="row g-4"></div>
+
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

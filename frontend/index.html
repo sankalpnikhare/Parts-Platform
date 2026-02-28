@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Local Parts - Home</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: url("https://t3.ftcdn.net/jpg/04/53/42/12/360_F_453421220_a27xUD3RfwQIuD3BO3vKIp8UKFfGk49J.jpg")
+        no-repeat center center / cover;
+      color: #fff;
+    }
+
+    
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: -1;
+    }
+
+    
+    nav {
+      background: transparent;
+    }
+
+    
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .hero-btn {
+      padding: 12px 32px;
+      font-size: 22px;
+      border-radius: 8px;
+    }
+
+  
+    section {
+      padding: 100px 0;
+    }
+
+    
+    .card {
+      color: #000;
+      border-radius: 12px;
+    }
+
+    
+    .subscribe-footer {
+      background: rgba(0,0,0,0.75);
+      padding: 40px 0;
+    }
+
+    .subscribe-footer input {
+      max-width: 400px;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">LocalParts</a>
+    <div class="ms-auto">
+      <a class="nav-link d-inline text-white me-3" href="#about">About Us</a>
+      <a class="nav-link d-inline text-white me-3" href="#contact">Contact Us</a>
+      <a class="nav-link d-inline text-white" href="mailto:localparts.platform@gmail.com">Email</a>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <h1 class="fw-bold mb-4">Welcome to Local Parts Platform</h1>
+  <button class="btn btn-light hero-btn" onclick="location.href='products.html'">
+    View Products
+  </button>
+</section>
+
+
+<section id="about">
+  <div class="container text-center">
+    <h2 class="mb-3">About Us</h2>
+    <p class="mx-auto" style="max-width:900px">
+      Local Parts Platform is a digital solution designed to connect customers with
+      electrical and mechanical spare parts efficiently.
+    </p>
+  </div>
+</section>
+
+
+<section id="contact">
+  <div class="container">
+    <h2 class="text-center mb-4">Contact Us</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card p-4 text-center">
+          <h5>Sankalp Nikhare</h5>
+          <!-- <p>📞 +91 90000 00001</p> -->
+          <p>✉ sankalpn05@gmail.com</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-4 text-center">
+          <h5>Siddhant Mankar</h5>
+          <!-- <p>📞 +91 90000 00002</p> -->
+          <p>✉ Siddhantmankar143@gmail.com</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-4 text-center">
+          <h5>Sahil Thutheja</h5>
+          <!-- <p>📞 +91 90000 00003</p> -->
+          <p>✉ sahilthutheja001@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="subscribe-footer text-center">
+  <input id="email" type="email" class="form-control mb-2"
+         placeholder="Enter your email to get updates">
+  <button class="btn btn-warning" onclick="subscribe()">Subscribe</button>
+  <p id="msg" class="mt-2"></p>
+</footer>
+
+
+<script>
+async function subscribe() {
+  const email = document.getElementById("email").value.trim();
+  const msg = document.getElementById("msg");
+
+  if (!email) {
+    msg.innerHTML = "<span class='text-danger'>Please enter an email</span>";
+    return;
+  }
+
+  try {
+    const res = await fetch("http://localhost:4000/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email })
+    });
+
+    const data = await res.json();
+    msg.innerHTML = `<span class="text-success">${data.message}</span>`;
+  } catch {
+    msg.innerHTML = "<span class='text-danger'>Server error</span>";
+  }
+}
+</script>
+
+</body>
+</html>
